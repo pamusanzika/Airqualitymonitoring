@@ -5,9 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000; /* Black background for the entire page */
+  color: #ffffff; /* White text color for visibility on black background */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  color: #ffffff; /* Ensure code text is also visible */
+}
+
+.App {
+  background-color: #000000; /* Black background for the main container */
+  color: #ffffff; /* White text color for visibility */
+  text-align: center;
+  padding: 20px;
 }
