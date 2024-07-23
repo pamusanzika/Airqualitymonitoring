@@ -17,8 +17,8 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const dbRef = ref(database, 'Gas value /sensor_data');
-    onValue(dbRef, (snapshot) => {
+    const dbRef = ref(database, 'Gas value');
+    const unsubscribe = onValue(dbRef, (snapshot) => {
       const newData = snapshot.val();
       if (newData) {
         setData(newData);
@@ -26,6 +26,8 @@ const Dashboard = () => {
         console.error('No data available');
       }
     });
+
+    return () => unsubscribe(); // Clean up the subscription on unmount
   }, []);
 
   const goToHistory = () => {
@@ -36,17 +38,16 @@ const Dashboard = () => {
     <div className="App">
       <h1>Air Quality Measurement</h1>
       <button onClick={goToHistory} className="button">View History</button>
+    
       <div className="gauge-container">
         <div className="gauge-row">
           <Gauge label="CO" value={data.CO} minValue={0} maxValue={10} unit="PPM" />
           <Gauge label="NO2" value={data.NO2} minValue={0} maxValue={10} unit="PPM" />
-          <Gauge label="Oxygen" value={data.Oxygen} minValue={0} maxValue={100} unit="PPM" />
+          <Gauge label="Oxygen" value={data.Oxygen} minValue={0} maxValue={100} unit="%" />
         </div>
         <div className="gauge-row">
           <Gauge label="Temperature" value={data.Temperature} minValue={0} maxValue={50} unit="°C" />
-          
           <Gauge label="Dust Level" value={data.Dust} minValue={0} maxValue={10} unit="µg/m³" />
-          
         </div>
       </div>
     </div>

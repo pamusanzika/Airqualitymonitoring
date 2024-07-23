@@ -7,7 +7,7 @@ const History = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const dbRef = ref(database, 'Gas value');
+    const dbRef = ref(database, 'History');
     onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
       console.log('Fetched data:', data); // For debugging
