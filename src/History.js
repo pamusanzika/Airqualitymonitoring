@@ -38,11 +38,11 @@ const History = () => {
           data.map((entry) => (
             <div className="history-row" key={entry.timestamp}>
               <div>{entry.timestamp}</div>
-              <div>{entry.CO !== undefined ? entry.CO.toFixed(2) : 'N/A'}</div>
-              <div>{entry.Dust !== undefined ? entry.Dust.toFixed(2) : 'N/A'}</div>
-              <div>{entry.NO2 !== undefined ? entry.NO2.toFixed(2) : 'N/A'}</div>
-              <div>{entry.Oxygen !== undefined ? entry.Oxygen.toFixed(2) : 'N/A'}</div>
-              <div>{entry.Temperature !== undefined ? entry.Temperature.toFixed(2) : 'N/A'}</div>
+              <div>{entry.CO !== undefined ? entry.CO.toFixed(2) : 'N/A'}PPM</div>
+              <div>{entry.Dust !== undefined ? entry.Dust.toFixed(2) : 'N/A'}µg/m³</div>
+              <div>{entry.NO2 !== undefined ? entry.NO2.toFixed(2) : 'N/A'}PPM</div>
+              <div>{entry.Oxygen !== undefined ? entry.Oxygen.toFixed(2) : 'N/A'}%</div>
+              <div>{entry.Temperature !== undefined ? entry.Temperature.toFixed(2) : 'N/A'}°C</div>
             </div>
           ))
         ) : (
